@@ -26,11 +26,19 @@ while True:
     number = int(input("Alright, Now enter the amount you would like to manufacture: "))
 
     if choice == 1:
+        if cost != {}:
+            clear = input("Do you want to clear the existing cost? (yes/no): ")
+            if clear == "yes":
+                cost.clear()
         parts = carrier_rocket.cost_calc(number)
         for key in parts.keys():
             print(key, parts.get(key))
 
     elif choice == 2:
+        if cost != {}:
+            clear = input("Do you want to clear the existing cost? (yes/no): ")
+            if clear == "yes":
+                cost.clear()
         parts = matrix_unify.cost_calc(number)
         for key in parts.keys():
             print(key, parts.get(key))
