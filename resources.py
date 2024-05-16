@@ -21,14 +21,14 @@ class Part:
     def cost_calc(self, number):
         global cost  # creates the dictionary
         for key in self.parts.keys():  # iterates through every part, the "key" variable has the key of the part
-            if key.resource == "part":  # checks if key is string (aka raw resource)
-                if cost.get(key.name) is None:
+            if key.resource == "part":  # checks the resource value to see if the object is a part or resource
+                if cost.get(key.name) is None: 
                     cost.update({key.name: self.parts[key] * number / self.amount})
                 else:
                     cost.update({key.name: cost.get(key.name) + (self.parts[key] * number / self.amount)})
                 cost.update(key.cost_calc(self.parts[key] * number / self.amount))  # updates value
             else:
-                if cost.get(key.name) is None:
+                if cost.get(key.name) is None: 
                     cost.update({key.name: self.parts[key] * number / self.amount})
                 else:
                     cost.update({key.name: cost.get(key.name) + (self.parts[key] * number / self.amount)})
